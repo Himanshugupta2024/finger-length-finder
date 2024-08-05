@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Finger Length Estimator</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="mt-5">Finger Length Estimator</h1>
+      <form method="post" class="mt-4">
+        <div class="form-group">
+          <label for="palm_length">Palm Length (cm)</label>
+          <input type="number" class="form-control" id="palm_length" name="palm_length" step="0.01" required>
+        </div>
+        <div class="form-group">
+          <label for="palm_width">Palm Width (cm)</label>
+          <input type="number" class="form-control" id="palm_width" name="palm_width" step="0.01" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Estimate Finger Lengths</button>
+      </form>
+      {% if finger_lengths %}
+        <h2 class="mt-5">Estimated Finger Lengths:</h2>
+        <ul class="list-group mt-3">
+          {% for finger, length in finger_lengths.items() %}
+            <li class="list-group-item">{{ finger }}: {{ length }} cm</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  </body>
+</html>
