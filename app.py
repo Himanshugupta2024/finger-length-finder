@@ -31,5 +31,8 @@ def index():
         finger_lengths = estimate_finger_lengths(palm_length, palm_width)
         return render_template('index.html', finger_lengths=finger_lengths)
     return render_template('index.html', finger_lengths=None)
+if __name__ == '__main__':
+    app.run(debug=True)
+
 
 
